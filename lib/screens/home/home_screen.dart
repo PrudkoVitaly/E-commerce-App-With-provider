@@ -2,8 +2,21 @@ import 'package:app_e_commerce_provider/core/constans.dart';
 import 'package:app_e_commerce_provider/screens/home/widgets/home_app_bar.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+import '../../models/products_model.dart';
+import 'widgets/categories.dart';
+import 'widgets/image_slider.dart';
+import 'widgets/product_cart.dart';
+import 'widgets/search_app_bar.dart';
+
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int currentSlider = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +29,70 @@ class HomeScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
+
               // Custom app bar
               CustomAppBar(),
+              const SizedBox(height: 20),
+
+              // Search bar
+              MySearchBar(),
+              const SizedBox(height: 20),
+
+              // Slider
+              ImageSlider(
+                currentIndex: currentSlider,
+                onChange: (value) {
+                  setState(() {
+                    currentSlider = value;
+                  });
+                },
+              ),
+              const SizedBox(height: 20),
+
+              // Categories
+              const Categories(),
+
+              // Text Special for you
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Special for you",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                  Text(
+                    "See all",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black54,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+
+              // List of products
+              GridView.builder(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 0.78,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20,
+                ),
+                itemCount: products.length,
+                itemBuilder: (context, index) {
+                  final product = products[index];
+                  return ProductCart(
+                    product: product,
+                  );
+                },
+              )
             ],
           ),
         ),
