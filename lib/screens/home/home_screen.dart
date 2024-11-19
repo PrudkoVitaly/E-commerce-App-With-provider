@@ -1,4 +1,3 @@
-import 'package:app_e_commerce_provider/core/constans.dart';
 import 'package:app_e_commerce_provider/screens/home/widgets/home_app_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -79,7 +78,8 @@ class _HomeScreenState extends State<HomeScreen> {
               GridView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                gridDelegate:
+                    const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 0.78,
                   crossAxisSpacing: 20,

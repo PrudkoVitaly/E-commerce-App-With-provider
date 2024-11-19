@@ -19,8 +19,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     FavoriteScreen(),
     HomeScreen(),
     CartScreen(),
-    DetailScreen(),
-
+    // DetailScreen(),
   ];
 
   @override
@@ -40,7 +39,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
           });
         },
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         elevation: 1,
         // height: 60,
@@ -61,7 +61,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
               icon: Icon(
                 Icons.grid_view_outlined,
                 size: 30,
-                color: currentIndex == 0 ? primaryColor : Colors.grey.shade400,
+                color: currentIndex == 0
+                    ? primaryColor
+                    : Colors.grey.shade400,
               ),
             ),
             IconButton(
@@ -73,7 +75,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
               icon: Icon(
                 Icons.favorite_border,
                 size: 30,
-                color: currentIndex == 1 ? primaryColor : Colors.grey.shade400,
+                color: currentIndex == 1
+                    ? primaryColor
+                    : Colors.grey.shade400,
               ),
             ),
             IconButton(
@@ -85,7 +89,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
               icon: Icon(
                 Icons.shopping_cart_outlined,
                 size: 30,
-                color: currentIndex == 3 ? primaryColor : Colors.grey.shade400,
+                color: currentIndex == 3
+                    ? primaryColor
+                    : Colors.grey.shade400,
               ),
             ),
             IconButton(
@@ -97,7 +103,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
               icon: Icon(
                 Icons.person,
                 size: 30,
-                color: currentIndex == 4 ? primaryColor : Colors.grey.shade400,
+                color: currentIndex == 4
+                    ? primaryColor
+                    : Colors.grey.shade400,
               ),
             ),
           ],

@@ -2,6 +2,7 @@ import 'package:app_e_commerce_provider/core/constans.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/products_model.dart';
+import '../../detail/detail_screen.dart';
 
 class ProductCart extends StatefulWidget {
   final Product product;
@@ -16,9 +17,17 @@ class _ProductCartState extends State<ProductCart> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
-
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => DetailScreen(
+              product: widget.product,
+            ),
+          ),
+        );
+      },
       child: Stack(
         children: [
           Container(
@@ -52,7 +61,7 @@ class _ProductCartState extends State<ProductCart> {
                 ),
                 const SizedBox(height: 10),
                 Row(
-                  mainAxisAlignment:  MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
                       "\$${widget.product.price}",
@@ -62,10 +71,9 @@ class _ProductCartState extends State<ProductCart> {
                       ),
                     ),
                     Row(
-
                       children: List.generate(
                         widget.product.colors.length,
-                            (index) {
+                        (index) {
                           return InkWell(
                             onTap: () {
                               setState(() {
@@ -75,19 +83,18 @@ class _ProductCartState extends State<ProductCart> {
                             child: Container(
                                 width: 18,
                                 height: 18,
-                                margin: const EdgeInsets.only(left: 5),
+                                margin:
+                                    const EdgeInsets.only(left: 5),
                                 decoration: BoxDecoration(
                                   color: widget.product.colors[index],
-                                  shape:  BoxShape.circle,
-                                )
-                            ),
+                                  shape: BoxShape.circle,
+                                )),
                           );
                         },
                       ),
                     ),
                   ],
                 ),
-
               ],
             ),
           ),
