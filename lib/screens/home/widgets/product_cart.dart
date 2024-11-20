@@ -15,6 +15,7 @@ class ProductCart extends StatefulWidget {
 
 class _ProductCartState extends State<ProductCart> {
   bool isSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -41,11 +42,14 @@ class _ProductCartState extends State<ProductCart> {
               children: [
                 const SizedBox(height: 15),
                 Center(
-                  child: Image.asset(
-                    widget.product.image,
-                    width: 130,
-                    height: 130,
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    tag: widget.product.image,
+                    child: Image.asset(
+                      widget.product.image,
+                      width: 130,
+                      height: 130,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -96,6 +100,30 @@ class _ProductCartState extends State<ProductCart> {
                   ],
                 ),
               ],
+            ),
+          ),
+          Positioned(
+            child: Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                  color: primaryColor,
+                  borderRadius: const BorderRadius.only(
+                    topRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(10),
+                  ),
+                ),
+                child: IconButton(
+                  icon: const Icon(
+                    Icons.favorite_border,
+                    size: 22,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {},
+                ),
+              ),
             ),
           ),
         ],

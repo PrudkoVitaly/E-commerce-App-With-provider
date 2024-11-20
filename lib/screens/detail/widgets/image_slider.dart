@@ -17,12 +17,15 @@ class ImageSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 250,
-      child: PageView.builder(
-        itemCount: product.images.length,
-        onPageChanged: onChange,
-        itemBuilder: (context, index) {
-          return Image.asset(image);
-        },
+      child: Hero(
+        tag: image,
+        child: PageView.builder(
+          itemCount: product.images.length,
+          onPageChanged: onChange,
+          itemBuilder: (context, index) {
+            return Image.asset(image);
+          },
+        ),
       ),
     );
   }

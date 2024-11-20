@@ -1,10 +1,9 @@
 import 'package:app_e_commerce_provider/core/constans.dart';
 import 'package:app_e_commerce_provider/models/products_model.dart';
+import 'package:app_e_commerce_provider/screens/detail/widgets/add_to_cart.dart';
 import 'package:app_e_commerce_provider/screens/detail/widgets/image_slider.dart';
 import 'package:app_e_commerce_provider/screens/detail/widgets/items_details.dart';
 import 'package:flutter/material.dart';
-
-import 'description.dart';
 import 'widgets/choose_desc.dart';
 import 'widgets/detail_app_bar.dart';
 
@@ -150,10 +149,9 @@ class _DetailScreenState extends State<DetailScreen> {
                     ),
                     const SizedBox(height: 20),
                     // For description
-                    // Description(
-                    //   text: widget.product.title,
-                    // ),
                     ChooseDesc(product: widget.product),
+
+                    // Add to cart button
                   ],
                 ),
               ),
@@ -161,6 +159,9 @@ class _DetailScreenState extends State<DetailScreen> {
           ),
         ),
       ),
+      floatingActionButton: AddToCart(product: widget.product),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.centerFloat,
     );
   }
 }
