@@ -1,5 +1,7 @@
 import 'package:app_e_commerce_provider/core/constans.dart';
+import 'package:app_e_commerce_provider/provider/favorite_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../models/products_model.dart';
 import '../../detail/detail_screen.dart';
@@ -18,6 +20,8 @@ class _ProductCartState extends State<ProductCart> {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<FavoriteProvider>(context);
+
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -115,14 +119,17 @@ class _ProductCartState extends State<ProductCart> {
                     bottomLeft: Radius.circular(10),
                   ),
                 ),
-                child: IconButton(
-                  icon: const Icon(
-                    Icons.favorite_border,
-                    size: 22,
-                    color: Colors.white,
-                  ),
-                  onPressed: () {},
-                ),
+                child: GestureDetector(
+                    onTap: () {
+                      provider.toggleFavorite(widget.product);
+                    },
+                    child: Icon(
+                      provider.isExist(widget.product)
+                          ? Icons.favorite_border
+                          : Icons.favorite,
+                      size: 22,
+                      color: Colors.white,
+                    )),
               ),
             ),
           ),

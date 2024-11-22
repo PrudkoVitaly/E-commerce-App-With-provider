@@ -27,8 +27,15 @@ class CartProvider extends ChangeNotifier {
     if (_cart[index].quantity > 1) {
       _cart[index].quantity--;
     }
-
     notifyListeners();
+  }
+
+  double totalPrice() {
+    double total1 = 0;
+    for (var element in _cart) {
+      total1 = element.price * element.quantity;
+    }
+    return total1;
   }
 
   static CartProvider of(

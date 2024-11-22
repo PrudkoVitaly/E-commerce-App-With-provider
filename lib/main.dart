@@ -1,3 +1,4 @@
+import 'package:app_e_commerce_provider/provider/favorite_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,6 +20,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => CartProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (_) => FavoriteProvider(),
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
