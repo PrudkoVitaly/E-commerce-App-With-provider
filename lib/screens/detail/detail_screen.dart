@@ -29,7 +29,7 @@ class _DetailScreenState extends State<DetailScreen> {
           child: Column(
             children: [
               // For back button, share and favorite
-              const DetailAppBar(),
+              DetailAppBar(product:  widget.product),
 
               // For detail image slider
               ImageSlider(

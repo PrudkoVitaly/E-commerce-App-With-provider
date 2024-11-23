@@ -9,10 +9,11 @@ class FavoriteProvider extends ChangeNotifier {
 
   void toggleFavorite(Product product) {
     if (_favorites.contains(product)) {
-      return;
+      _favorites.remove(product);
     } else {
       _favorites.add(product);
     }
+    notifyListeners();
   }
 
   bool isExist(Product product) {

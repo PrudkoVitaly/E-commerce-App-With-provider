@@ -5,8 +5,12 @@ import 'package:app_e_commerce_provider/screens/favorite/favorite_screen.dart';
 import 'package:app_e_commerce_provider/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../models/products_model.dart';
+import 'profile/profile.dart';
+
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+
+  const BottomNavBar({super.key,});
 
   @override
   State<BottomNavBar> createState() => _BottomNavBarState();
@@ -19,7 +23,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     FavoriteScreen(),
     HomeScreen(),
     CartScreen(),
-    // DetailScreen(),
+    Profile(),
   ];
 
   @override

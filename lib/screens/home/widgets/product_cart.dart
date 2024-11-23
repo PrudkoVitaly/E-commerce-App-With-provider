@@ -91,8 +91,7 @@ class _ProductCartState extends State<ProductCart> {
                             child: Container(
                                 width: 18,
                                 height: 18,
-                                margin:
-                                    const EdgeInsets.only(left: 5),
+                                margin: const EdgeInsets.only(left: 5),
                                 decoration: BoxDecoration(
                                   color: widget.product.colors[index],
                                   shape: BoxShape.circle,
@@ -120,16 +119,17 @@ class _ProductCartState extends State<ProductCart> {
                   ),
                 ),
                 child: GestureDetector(
-                    onTap: () {
-                      provider.toggleFavorite(widget.product);
-                    },
-                    child: Icon(
-                      provider.isExist(widget.product)
-                          ? Icons.favorite_border
-                          : Icons.favorite,
-                      size: 22,
-                      color: Colors.white,
-                    )),
+                  onTap: () {
+                    provider.toggleFavorite(widget.product);
+                  },
+                  child: Icon(
+                    provider.isExist(widget.product)
+                        ? Icons.favorite
+                        : Icons.favorite_border,
+                    size: 22,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ),
